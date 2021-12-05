@@ -34,7 +34,7 @@ If !FileExist("Extras\Q3HQ\Launcher")
 	FileCreateDir, %A_ScriptDir%\Extras\Q3HQ\Launcher
 
 If ( !FileExist("Extras\Q3HQ\Launcher\Launcher") || ( (AutoUpdate != never) && (UpDateDifference > AutoUpdate) ) ) {
-	LatestScript := UrlDownloadToVar("https://raw.githubusercontent.com/Q3HQ/quake3launcher/master/Extras/Q3HQ/Launcher/Launcher2")
+	LatestScript := UrlDownloadToVar("https://raw.githubusercontent.com/Q3HQ/quake3launcher/master/Extras/Q3HQ/Launcher/Launcher")
 	FileRead, LocalScript, "Extras\Q3HQ\Launcher\Launcher"
 	if ( LocalScript != LatestScript ) {
 		LocalScriptFile := FileOpen("Extras\Q3HQ\Launcher\Launcher", "w")
@@ -45,8 +45,5 @@ If ( !FileExist("Extras\Q3HQ\Launcher\Launcher") || ( (AutoUpdate != never) && (
 }
 
 Run:
-		MsgBox, %LocalScript%
-		MsgBox, %LatestScript%
-		MsgBox, %UpDateDifference% > %AutoUpdate%
 SplitPath, A_ScriptFullPath, name, dir, ext, name_no_ext, drive ; for debugging
 Run, %name_no_ext%.exe /script "Extras\Q3HQ\Launcher\Launcher"
