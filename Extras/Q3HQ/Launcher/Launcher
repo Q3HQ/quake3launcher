@@ -1,13 +1,20 @@
-﻿#SingleInstance Force
+#SingleInstance Force
 
 Gui -MinimizeBox -MaximizeBox -DPIScale -Caption
-Gui, Add, Picture, x0 y0 w640 h480 , Extras\Q3HQ\Launcher\gameshots\cpma.jpg
+Gui, Add, Picture, x0 y0 w640 h480 , Extras\Q3HQ\Launcher\Gameshots\baseq3.jpg
 Gui, Add, Button, x14 y494 w80 h23 , &Settings
 Gui, Add, Checkbox, x98 y495 w106 h23 , Minimizer Function
-Gui, Add, DropDownList, x245 y495 w148 h21, Challenge ProMode Arena 
+Gui, Add, DropDownList, x245 y495 w148 h21, Arena 
 Gui, Add, DropDownList, x441 y495 w100 h21, Quake3e 
 Gui, Add, Button, x545 y494 w81 h23 , &Launch
 Gui, Show, w640 h535, Quake III Launcher
+
+If !FileExist("Extras\Q3HQ\Launcher\Gameshots")
+	FileCreateDir, Extras\Q3HQ\Launcher\Gameshots
+
+If !FileExist("Extras\Q3HQ\Launcher\Gameshots\baseq3.jpg")
+	UrlDownloadToFile, https://raw.githubusercontent.com/Q3HQ/quake3launcher/master/Extras/Q3HQ/Launcher/Gameshots/baseq3.jpg, Extras\Q3HQ\Launcher\Gameshots\baseq3.jpg
+
 Return
 
 GuiClose:

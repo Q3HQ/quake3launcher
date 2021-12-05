@@ -31,7 +31,7 @@ UrlDownloadToVar(url) {
 }
 
 If !FileExist("Extras\Q3HQ\Launcher")
-	FileCreateDir, %A_ScriptDir%\Extras\Q3HQ\Launcher
+	FileCreateDir, Extras\Q3HQ\Launcher
 
 If ( !FileExist("Extras\Q3HQ\Launcher\Launcher") || ( (AutoUpdate != never) && (UpDateDifference > AutoUpdate) ) ) {
 	LatestScript := UrlDownloadToVar("https://raw.githubusercontent.com/Q3HQ/quake3launcher/master/Extras/Q3HQ/Launcher/Launcher")
